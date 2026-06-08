@@ -1,5 +1,1060 @@
 <!doctype html>
+<html lang="en"><!doctype html>
 <html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precision RO Consulting Revenue Opportunity Calculator</title>
+<style>
+:root{
+  --black:#050507;
+  --charcoal:#121216;
+  --panel:#19191f;
+  --panel-2:#202028;
+  --line:#34313d;
+  --text:#f7f4ff;
+  --muted:#b6aec7;
+  --soft:#817791;
+  --purple:#7c3cff;
+  --purple-2:#a45cff;
+  --magenta:#ff3dbd;
+  --magenta-2:#d71188;
+  --success:#31e8a2;
+  --shadow:0 28px 80px rgba(0,0,0,.42);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{width:100%;overflow-x:hidden}
+body{
+  margin:0;
+  width:100%;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(124,60,255,.28), transparent 28%),
+    radial-gradient(circle at 86% 8%, rgba(255,61,189,.18), transparent 26%),
+    linear-gradient(145deg,#050507 0%,#111116 52%,#070709 100%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+button,input{font:inherit}
+.page{min-height:100vh;padding:34px;display:grid;place-items:center;min-width:0}
+.shell{
+  width:100%;
+  max-width:1600px;
+  min-width:0;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;
+  background:linear-gradient(180deg,rgba(25,25,31,.94),rgba(13,13,17,.96));
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.top{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  padding:24px 28px;
+  border-bottom:1px solid var(--line);
+  background:rgba(5,5,7,.45);
+}
+.brand{display:flex;align-items:center;gap:16px;min-width:0}
+.brand img{
+  width:88px;
+  height:58px;
+  object-fit:contain;
+  padding:7px;
+  border-radius:6px;
+  background:rgba(255,255,255,.96);
+}
+.brand h1{margin:0;font-size:22px;line-height:1.1;letter-spacing:0}
+.brand p{margin:7px 0 0;color:var(--muted);font-size:13px}
+.brand div{min-width:0}
+.signal{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  white-space:normal;
+  text-align:right;
+  min-width:0;
+}
+.signal span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--magenta));
+  box-shadow:0 0 22px rgba(255,61,189,.8);
+}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(260px,320px) minmax(0,1fr);
+  gap:0;
+  min-width:0;
+}
+.intro{
+  min-width:0;
+  padding:30px 24px 28px;
+  border-right:1px solid var(--line);
+  background:
+    linear-gradient(180deg,rgba(124,60,255,.14),transparent 42%),
+    rgba(12,12,16,.72);
+}
+.eyebrow{
+  margin:0 0 12px;
+  color:var(--magenta);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.intro h2{
+  margin:0;
+  max-width:300px;
+  font-size:36px;
+  line-height:1.02;
+  letter-spacing:0;
+}
+.intro-copy{
+  margin:18px 0 0;
+  max-width:300px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.55;
+}
+.summary-card{
+  margin-top:26px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;
+  background:rgba(255,255,255,.04);
+  padding:20px;
+}
+.summary-card span{
+  display:block;
+  color:var(--soft);
+  font-size:12px;
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.summary-card strong{
+  display:block;
+  margin-top:8px;
+  font-size:clamp(28px,2.4vw,38px);
+  line-height:1;
+  white-space:nowrap;
+}
+.summary-card p{margin:9px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+.workarea{padding:30px;display:grid;gap:26px;min-width:0}
+.calculator{
+  display:grid;
+  grid-template-columns:minmax(270px,320px) minmax(0,1fr);
+  gap:28px;
+  align-items:start;
+  min-width:0;
+}
+.panel{
+  min-width:0;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;
+  background:rgba(255,255,255,.045);
+}
+.input-panel{padding:22px}
+.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.panel-head h3{margin:0;font-size:18px}
+.panel-head p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+.badge{
+  flex:0 0 auto;
+  border:1px solid rgba(255,61,189,.35);
+  border-radius:999px;
+  padding:7px 10px;
+  color:#ffe5f7;
+  background:rgba(255,61,189,.12);
+  font-size:11px;
+  font-weight:800;
+}
+.fields{display:grid;gap:14px}
+.field label{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:7px;
+  color:#ebe7f5;
+  font-size:13px;
+  font-weight:800;
+}
+.field small{color:var(--soft);font-weight:700}
+.input-wrap{
+  display:flex;
+  align-items:center;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:7px;
+  background:rgba(5,5,7,.66);
+  overflow:hidden;
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.input-wrap:focus-within{
+  border-color:rgba(255,61,189,.8);
+  box-shadow:0 0 0 4px rgba(255,61,189,.11);
+  background:rgba(5,5,7,.92);
+}
+.prefix,.suffix{
+  color:var(--muted);
+  font-weight:900;
+  min-width:44px;
+  text-align:center;
+}
+.suffix{min-width:58px;font-size:12px;text-transform:uppercase}
+input{
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  padding:14px 13px;
+  font-size:17px;
+  font-weight:800;
+}
+input[type=number]{appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{appearance:none;margin:0}
+.text-input{padding-left:13px}
+.quick-hpro{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:9px;
+}
+.preset-prompt{
+  margin:11px 0 0;
+  color:#efeaff;
+  font-size:13px;
+  font-weight:850;
+  line-height:1.35;
+}
+.preset-prompt span{color:var(--magenta)}
+.hpro-option{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:7px;
+  padding:10px 8px 9px;
+  color:#efeaff;
+  background:rgba(255,255,255,.055);
+  font-weight:900;
+  cursor:pointer;
+  transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.hpro-option strong{
+  display:block;
+  color:#fff;
+  font-size:12px;
+  line-height:1.1;
+}
+.hpro-option span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.1;
+}
+.hpro-option:hover,.hpro-option.active{
+  border-color:rgba(255,61,189,.72);
+  background:linear-gradient(135deg,rgba(124,60,255,.34),rgba(255,61,189,.18));
+  box-shadow:0 0 0 3px rgba(255,61,189,.08);
+}
+.results{display:grid;gap:20px;min-width:0}
+.primary-result{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:24px;
+  align-items:center;
+  padding:28px 30px;
+  min-height:156px;
+  background:
+    linear-gradient(135deg,rgba(124,60,255,.34),rgba(255,61,189,.22)),
+    rgba(255,255,255,.045);
+}
+.metric span,.result span{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.metric strong,.result strong{
+  display:block;
+  margin-top:8px;
+  color:#fff;
+  font-size:clamp(25px,2.2vw,34px);
+  line-height:1.05;
+  white-space:nowrap;
+  overflow-wrap:normal;
+}
+.primary-result strong{font-size:clamp(38px,4vw,58px);white-space:nowrap}
+.delta{
+  min-width:132px;
+  text-align:center;
+  border-radius:8px;
+  padding:15px 13px;
+  background:rgba(5,5,7,.42);
+  border:1px solid rgba(255,255,255,.12);
+}
+.delta b{display:block;color:var(--success);font-size:28px;line-height:1}
+.delta em{display:block;margin-top:7px;color:var(--muted);font-size:11px;font-style:normal;text-transform:uppercase;font-weight:900}
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(280px,1fr));
+  gap:20px;
+}
+.result{padding:24px;min-height:136px;background:rgba(255,255,255,.04);display:grid;align-content:center}
+.result strong{overflow-wrap:normal}
+.bar-panel{padding:24px}
+.recommendation-panel{
+  padding:24px;
+  border-color:rgba(255,61,189,.28);
+  background:
+    linear-gradient(135deg,rgba(124,60,255,.16),rgba(255,61,189,.09)),
+    rgba(255,255,255,.04);
+}
+.recommendation-panel h3{margin:0;font-size:18px}
+.recommendation-panel p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+.recommendation-output{
+  margin-top:16px;
+  padding:16px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(5,5,7,.42);
+}
+.recommendation-output span{
+  display:block;
+  color:var(--magenta);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.recommendation-output strong{
+  display:block;
+  margin-top:7px;
+  color:#fff;
+  font-size:24px;
+  line-height:1.16;
+}
+.recommendation-output em{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  font-style:normal;
+  line-height:1.4;
+}
+.recommendation-output b{
+  display:block;
+  margin-top:8px;
+  color:#fff;
+  font-size:13px;
+  line-height:1.35;
+}
+.dealership-copy{
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.dealership-copy p{
+  margin:0;
+  color:#efeaff;
+  font-size:14px;
+  line-height:1.48;
+}
+.dealership-copy p + p{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+.bars{display:grid;gap:15px;margin-top:16px}
+.bar-row{display:grid;gap:7px}
+.bar-label{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;font-weight:800}
+.track{height:12px;border-radius:999px;background:#0b0b0f;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.fill{display:block;height:100%;width:0%;border-radius:inherit;background:linear-gradient(90deg,var(--purple),var(--magenta))}
+.footnote{
+  margin-top:17px;
+  color:var(--soft);
+  font-size:12px;
+  line-height:1.45;
+}
+.brand-footer{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:19px 20px;
+  border-top:1px solid var(--line);
+  background:rgba(5,5,7,.48);
+}
+.brand-footer strong{display:block;font-size:16px}
+.brand-footer span{display:block;margin-top:5px;color:var(--muted);font-size:12px;line-height:1.45}
+.brand-footer a{
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:850;
+  overflow-wrap:anywhere;
+}
+.brand-footer .contact-links{
+  display:grid;
+  gap:5px;
+  text-align:right;
+}
+.input-actions{display:flex;justify-content:flex-start;margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+.results-cta{display:flex;justify-content:flex-end;margin-top:-2px}
+.btn{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:7px;
+  padding:11px 13px;
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  font-weight:900;
+  cursor:pointer;
+  transition:background .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease,color .18s ease;
+}
+.btn-export{
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--purple),var(--magenta));
+  padding:15px 20px;
+  min-height:52px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  box-shadow:0 14px 34px rgba(255,61,189,.26),0 0 0 1px rgba(255,255,255,.08) inset;
+}
+.btn-export svg{width:18px;height:18px;stroke-width:2.4}
+.btn-export:hover{
+  background:linear-gradient(135deg,#9657ff,#ff55c9);
+  box-shadow:0 18px 42px rgba(255,61,189,.36),0 0 0 1px rgba(255,255,255,.16) inset;
+  transform:translateY(-1px);
+}
+.btn-reset{
+  padding:9px 11px;
+  min-height:38px;
+  color:#bdb5ca;
+  background:rgba(255,255,255,.035);
+  border-color:rgba(255,255,255,.09);
+  font-size:12px;
+}
+.btn-reset:hover{
+  color:#fff;
+  background:rgba(255,255,255,.075);
+  border-color:rgba(255,255,255,.16);
+}
+.pdf-proposal{display:none}
+@media(max-width:1400px){
+  .hero{grid-template-columns:minmax(240px,300px) minmax(0,1fr)}
+  .intro{padding:28px 22px}
+  .intro h2{font-size:32px;max-width:270px}
+  .intro-copy{font-size:14px;max-width:270px}
+  .workarea{padding:26px}
+  .calculator{grid-template-columns:1fr;gap:24px}
+  .input-panel{width:min(100%,460px);justify-self:center}
+  .results{width:100%}
+  .result-grid{grid-template-columns:repeat(2,minmax(300px,1fr))}
+  .metric strong,.result strong{font-size:clamp(26px,2.4vw,34px)}
+  .primary-result strong{font-size:clamp(34px,3.6vw,48px)}
+}
+@media(max-width:980px){
+  .page{padding:22px}
+  .hero,.calculator{grid-template-columns:1fr}
+  .intro{border-right:0;border-bottom:1px solid var(--line)}
+  .intro h2{font-size:38px}
+  .intro h2,.intro-copy{max-width:620px}
+  .input-panel{justify-self:stretch;width:100%}
+  .result-grid{grid-template-columns:repeat(2,minmax(260px,1fr))}
+}
+@media(max-width:680px){
+  .page{padding:0}
+  .shell{min-height:100vh;border:0;border-radius:0}
+  .top{display:block;padding:20px}
+  .signal{margin-top:16px}
+  .brand img{width:74px;height:52px}
+  .brand h1{font-size:19px}
+  .intro,.workarea{padding:22px 18px}
+  .intro h2{font-size:32px}
+  .primary-result,.result-grid{grid-template-columns:1fr}
+  .primary-result strong{font-size:40px}
+  .metric strong,.result strong{font-size:clamp(25px,8vw,34px)}
+  .delta{text-align:left}
+  .input-actions,.results-cta{display:grid;justify-content:stretch}
+  .btn{width:100%}
+  .brand-footer{grid-template-columns:1fr}
+  .brand-footer .contact-links{text-align:left}
+}
+@media(max-width:430px){
+  .quick-hpro{grid-template-columns:1fr}
+  .panel-head{display:block}
+  .badge{display:inline-block;margin-top:10px}
+}
+@media print{
+  body{background:#fff;color:#17141d}
+  .page{display:none}
+  .pdf-proposal{
+    display:block;
+    width:8.5in;
+    min-height:11in;
+    margin:0;
+    padding:.48in;
+    background:#fff;
+    color:#17141d;
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  .pdf-top,
+  .pdf-meta,
+  .pdf-grid,
+  .pdf-service,
+  .pdf-package-card,
+  .pdf-disclaimer,
+  .pdf-contact,
+  .pdf-closing,
+  .pdf-footer{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .pdf-section-title{
+    break-after:avoid;
+    page-break-after:avoid;
+  }
+  .pdf-service,
+  .pdf-package-card,
+  .pdf-disclaimer,
+  .pdf-contact,
+  .pdf-closing{
+    break-before:auto;
+    page-break-before:auto;
+  }
+  .pdf-top{
+    background:linear-gradient(135deg,#050507 0%,#17111f 58%,#2a1230 100%);
+    color:#f8f4ff;
+    padding:30px;
+    border-radius:8px;
+    border-bottom:8px solid #ff3dbd;
+    position:relative;
+    overflow:hidden;
+  }
+  .pdf-top:before{content:"PRC";position:absolute;right:22px;bottom:-20px;color:rgba(255,255,255,.06);font-size:96px;font-weight:900;letter-spacing:0}
+  .pdf-top:after{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(90deg,#7c3cff,#ff3dbd)}
+  .pdf-brand{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .pdf-brand img{width:168px;height:auto;background:#fff;border-radius:8px;padding:10px;box-shadow:0 14px 30px rgba(0,0,0,.28)}
+  .pdf-brand span{display:block;text-align:right;color:#fff;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+  .pdf-wordmark{position:relative;margin-top:24px;color:#ff3dbd;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.16em}
+  .pdf-proposal h1{position:relative;margin:12px 0 0;font-size:38px;line-height:1.02}
+  .pdf-subtitle{position:relative;margin:12px 0 0;color:#ded5eb;font-size:15px;line-height:1.45;max-width:6.4in}
+  .pdf-meta,.pdf-grid,.pdf-contact-grid,.pdf-package-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pdf-meta{margin:18px 0}
+  .pdf-section-title{margin:20px 0 10px;color:#17141d;font-size:16px;line-height:1.1}
+  .pdf-box,.pdf-metric,.pdf-service,.pdf-contact,.pdf-closing,.pdf-package-card,.pdf-disclaimer{border:1px solid #ded9e8;border-radius:8px;background:#fbfaff;padding:14px}
+  .pdf-box,.pdf-metric{break-inside:avoid;page-break-inside:avoid}
+  .pdf-box span,.pdf-metric span,.pdf-service span,.pdf-contact span,.pdf-closing span,.pdf-package-card span,.pdf-disclaimer span{display:block;color:#756a83;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .pdf-box strong{display:block;margin-top:6px;font-size:19px;color:#17141d}
+  .pdf-grid{margin:14px 0}
+  .pdf-metric{background:#fff}
+  .pdf-metric.dark{background:#121216;border-color:#121216}
+  .pdf-metric.dark span{color:#c9bfd7}
+  .pdf-metric.dark strong{color:#fff}
+  .pdf-metric.highlight{background:linear-gradient(135deg,rgba(124,60,255,.11),rgba(255,61,189,.09));border-color:#cfc1ef}
+  .pdf-metric strong{display:block;margin-top:7px;font-size:24px;color:#17141d}
+  .pdf-metric.highlight strong{font-size:30px;color:#521fae}
+  .pdf-metric .hpro-pop{color:#ff3dbd;font-size:32px}
+  .pdf-service{margin-top:10px;background:linear-gradient(135deg,#14141a,#21132a);color:#fff;border-color:#14141a;border-bottom:4px solid #ff3dbd}
+  .pdf-service span{color:#c9bfd7}
+  .pdf-service strong{display:block;margin-top:8px;font-size:27px;line-height:1.12}
+  .pdf-service em,.pdf-service b{display:block;margin-top:8px;color:#c9bfd7;font-style:normal;font-size:13px}
+  .pdf-service b{color:#fff;font-size:15px;line-height:1.35}
+  .pdf-package-card{background:#fff;min-height:102px}
+  .pdf-service + .pdf-package-card,.pdf-package-card + .pdf-package-card,.pdf-package-card + .pdf-disclaimer{margin-top:12px}
+  .pdf-package-card strong{display:block;margin-top:8px;color:#17141d;font-size:22px;line-height:1.15}
+  .pdf-package-card p{margin:8px 0 0;color:#51465e;font-size:13px;line-height:1.45}
+  .pdf-package-card.accent{background:linear-gradient(135deg,rgba(124,60,255,.12),rgba(255,61,189,.08));border-color:#cfc1ef}
+  .pdf-package-card.accent strong{color:#521fae}
+  .pdf-disclaimer{margin-top:12px;background:#fff}
+  .pdf-disclaimer p{margin:8px 0 0;color:#51465e;font-size:12px;line-height:1.45}
+  .pdf-contact{margin-top:16px}
+  .pdf-contact-grid{margin-top:12px;grid-template-columns:1.1fr .9fr}
+  .pdf-line{border-top:1px solid #bfb8cd;padding-top:8px;min-height:34px;color:#756a83;font-size:12px}
+  .pdf-line strong{display:block;color:#17141d;font-size:14px;margin-bottom:4px}
+  .pdf-description{margin:12px 0 0;color:#342b3f;font-size:13px;line-height:1.45}
+  .pdf-closing{margin-top:16px;background:linear-gradient(135deg,#121216,#21132a);color:#fff;border-color:#21132a;border-bottom:5px solid #7c3cff}
+  .pdf-closing span{color:#ffb8e7}
+  .pdf-closing strong{display:block;margin-top:8px;color:#fff;font-size:19px;line-height:1.18}
+  .pdf-closing p{margin:9px 0 0;color:#ded5eb;font-size:12px;line-height:1.48}
+  .pdf-footer{margin-top:22px;border-top:1px solid #ded9e8;padding-top:10px;display:flex;justify-content:space-between;gap:12px;color:#756a83;font-size:11px}
+  .pdf-footer strong{display:block;color:#17141d;font-size:14px}.pdf-footer span{display:block;margin-top:4px}
+  @page{size:Letter;margin:0}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="shell" aria-label="Precision RO Consulting revenue opportunity calculator">
+    <header class="top">
+      <div class="brand">
+        <img src="logo_transparent_background.png" alt="Precision RO Consulting logo">
+        <div>
+          <h1>Precision RO Consulting</h1>
+          <p>Revenue opportunity calculator for fixed operations performance.</p>
+        </div>
+      </div>
+      <div class="signal"><span aria-hidden="true"></span>Premium dealership consulting tool</div>
+    </header>
+
+    <section class="hero">
+      <div class="intro">
+        <p class="eyebrow">Service Drive Growth Model</p>
+        <h2>Quantify the labor revenue hidden in every repair order.</h2>
+        <p class="intro-copy">Model the impact of adding legitimate inspection-driven labor hours per RO and turn a small process improvement into a clear monthly and annual revenue case.</p>
+        <div class="summary-card">
+          <span>Added monthly labor revenue</span>
+          <strong id="heroAdded">$0</strong>
+          <p id="heroNote">Update the inputs to evaluate the opportunity.</p>
+        </div>
+      </div>
+
+      <div class="workarea">
+        <section class="calculator">
+          <form class="panel input-panel" id="calculatorForm">
+            <div class="panel-head">
+              <div>
+                <h3>Dealership Inputs</h3>
+                <p>Enter store volume, labor rate, and projected hours improvement.</p>
+              </div>
+              <span class="badge">Live model</span>
+            </div>
+
+            <div class="fields">
+              <div class="field">
+                <label for="dealerName">Dealer name <small>proposal</small></label>
+                <div class="input-wrap"><input class="text-input" id="dealerName" type="text" value="Your Dealership" autocomplete="organization"></div>
+              </div>
+              <div class="field">
+                <label for="repairOrders">Monthly repair orders <small>RO count</small></label>
+                <div class="input-wrap"><input id="repairOrders" type="number" min="0" step="1" value="900" inputmode="numeric"></div>
+              </div>
+              <div class="field">
+                <label for="laborRate">Effective labor rate <small>ELR</small></label>
+                <div class="input-wrap"><span class="prefix">$</span><input id="laborRate" type="number" min="0" step="1" value="175" inputmode="decimal"></div>
+              </div>
+              <div class="field">
+                <label for="currentHours">Current hours per RO <small>baseline</small></label>
+                <div class="input-wrap"><input id="currentHours" type="number" min="0" step="0.1" value="1.5" inputmode="decimal"><span class="suffix">hrs</span></div>
+              </div>
+              <div class="field">
+                <label for="addedHours">Added hours per RO <small>opportunity</small></label>
+                <div class="input-wrap"><input id="addedHours" type="number" min="0" step="0.1" value="0.3" inputmode="decimal"><span class="suffix">hrs</span></div>
+                <p class="preset-prompt">What would <span>half an hour per RO</span> be worth to your store?</p>
+                <div class="quick-hpro" aria-label="Quick HPRO selections">
+                  <button class="hpro-option" type="button" data-hpro="0.2"><strong>Conservative</strong><span>+0.2 HPRO</span></button>
+                  <button class="hpro-option" type="button" data-hpro="0.5"><strong>Realistic</strong><span>+0.5 HPRO</span></button>
+                  <button class="hpro-option" type="button" data-hpro="1.0"><strong>Aggressive</strong><span>+1.0 HPRO</span></button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="monthsProjected">Months projected <small>term</small></label>
+                <div class="input-wrap"><input id="monthsProjected" type="number" min="1" step="1" value="12" inputmode="numeric"><span class="suffix">mos</span></div>
+              </div>
+            </div>
+
+            <div class="input-actions">
+              <button class="btn btn-reset" type="button" id="resetBtn">Reset Inputs</button>
+            </div>
+          </form>
+
+          <section class="results" aria-label="Revenue outputs">
+            <div class="panel primary-result">
+              <div class="metric">
+                <span>Projected monthly labor revenue</span>
+                <strong id="projectedMonthly">$0</strong>
+              </div>
+              <div class="delta">
+                <b id="percentageIncrease">0%</b>
+                <em>Increase</em>
+              </div>
+            </div>
+
+            <div class="results-cta">
+              <button class="btn btn-export" type="button" id="pdfBtn" aria-label="Export PDF Proposal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M12 3v12"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                  <path d="M5 21h14"></path>
+                </svg>
+                <span>Export PDF Proposal</span>
+              </button>
+            </div>
+
+            <div class="result-grid">
+              <div class="panel result">
+                <span>Added monthly labor revenue</span>
+                <strong id="addedMonthly">$0</strong>
+              </div>
+              <div class="panel result">
+                <span>Added yearly labor revenue</span>
+                <strong id="addedYearly">$0</strong>
+              </div>
+              <div class="panel result">
+                <span>Current monthly labor revenue</span>
+                <strong id="currentMonthly">$0</strong>
+              </div>
+              <div class="panel result">
+                <span>Percentage increase</span>
+                <strong id="percentageTile">0%</strong>
+              </div>
+            </div>
+
+            <div class="panel bar-panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Revenue Lift</h3>
+                  <p>Current monthly revenue compared with projected monthly revenue.</p>
+                </div>
+              </div>
+              <div class="bars">
+                <div class="bar-row">
+                  <div class="bar-label"><span>Current</span><span id="currentBarValue">$0</span></div>
+                  <div class="track"><span class="fill" id="currentBar"></span></div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label"><span>Projected</span><span id="projectedBarValue">$0</span></div>
+                  <div class="track"><span class="fill" id="projectedBar"></span></div>
+                </div>
+              </div>
+              <p class="footnote" id="projectionNote">Annual revenue uses the selected projection term.</p>
+            </div>
+
+            <div class="panel recommendation-panel">
+              <h3>PRC Service Recommendation</h3>
+              <p>Suggested engagement based on the projected yearly labor opportunity.</p>
+              <div class="recommendation-output">
+                <span>Recommended next step</span>
+                <strong id="serviceRecommendation">Performance Audit</strong>
+                <em id="recommendationReason">Opportunity is under $150,000.</em>
+                <b id="recommendationPrice">Estimated quote: $1,200 for a half-day audit to help isolate missed opportunities.</b>
+              </div>
+              <div class="dealership-copy">
+                <p id="dealerOpportunityCopy">Based on your repair order volume and labor rate, a 0.3 hour improvement per repair order could represent an estimated $0 in additional annual labor revenue.</p>
+                <p>Projected opportunity is based on labor revenue only and does not include parts gross, future retention, declined service recovery, or repeat customer-pay visits.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+    <footer class="brand-footer">
+      <div>
+        <strong>Precision RO Consulting</strong>
+        <span>Inspection Quality • Diagnostic Process • Advisor/Technician Training</span>
+        <span>PRC helps dealerships improve inspection consistency, diagnostic process, advisor communication, and technician-driven revenue performance.</span>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.prc.works">www.prc.works</a>
+        <a href="mailto:precision.ro.consulting@gmail.com">precision.ro.consulting@gmail.com</a>
+        <a href="tel:+14235046197">(423) 504-6197</a>
+      </div>
+    </footer>
+  </section>
+</main>
+<section id="pdfProposal" class="pdf-proposal" aria-hidden="true"></section>
+
+<script>
+const defaults = {
+  dealerName: "Your Dealership",
+  repairOrders: 900,
+  laborRate: 175,
+  currentHours: 1.5,
+  addedHours: 0.3,
+  monthsProjected: 12
+};
+
+const ids = [
+  "dealerName",
+  "repairOrders",
+  "laborRate",
+  "currentHours",
+  "addedHours",
+  "monthsProjected"
+];
+
+const elements = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
+const outputIds = [
+  "heroAdded",
+  "heroNote",
+  "projectedMonthly",
+  "percentageIncrease",
+  "addedMonthly",
+  "addedYearly",
+  "currentMonthly",
+  "percentageTile",
+  "currentBar",
+  "projectedBar",
+  "currentBarValue",
+  "projectedBarValue",
+  "projectionNote",
+  "serviceRecommendation",
+  "recommendationReason",
+  "recommendationPrice",
+  "dealerOpportunityCopy"
+];
+const outputs = Object.fromEntries(outputIds.map((id) => [id, document.getElementById(id)]));
+
+const currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0
+});
+
+let latestModel = {};
+
+function numberFrom(input, fallback = 0) {
+  const value = Number(input.value);
+  return Number.isFinite(value) && value >= 0 ? value : fallback;
+}
+
+function calculate() {
+  const repairOrders = numberFrom(elements.repairOrders);
+  const laborRate = numberFrom(elements.laborRate);
+  const currentHours = numberFrom(elements.currentHours);
+  const addedHours = numberFrom(elements.addedHours);
+  const monthsProjected = Math.max(1, Math.round(numberFrom(elements.monthsProjected, 1)));
+
+  const currentMonthly = repairOrders * laborRate * currentHours;
+  const addedMonthly = repairOrders * laborRate * addedHours;
+  const projectedMonthly = currentMonthly + addedMonthly;
+  const currentAnnual = currentMonthly * 12;
+  const projectedAnnual = projectedMonthly * 12;
+  const addedYearly = addedMonthly * 12;
+  const projectedTermOpportunity = addedMonthly * monthsProjected;
+  const percentageIncrease = currentMonthly > 0 ? (addedMonthly / currentMonthly) * 100 : 0;
+  const maxMonthly = Math.max(currentMonthly, projectedMonthly, 1);
+  const projectedHours = currentHours + addedHours;
+
+  latestModel = {
+    dealerName: elements.dealerName.value.trim() || "Your Dealership",
+    repairOrders,
+    laborRate,
+    currentHours,
+    addedHours,
+    projectedHours,
+    monthsProjected,
+    currentMonthly,
+    currentAnnual,
+    addedMonthly,
+    projectedMonthly,
+    projectedAnnual,
+    addedYearly,
+    projectedTermOpportunity,
+    percentageIncrease
+  };
+
+  outputs.heroAdded.textContent = currency.format(addedMonthly);
+  outputs.heroNote.textContent = `${currency.format(projectedTermOpportunity)} over ${monthsProjected} month${monthsProjected === 1 ? "" : "s"}.`;
+  outputs.projectedMonthly.textContent = currency.format(projectedMonthly);
+  outputs.percentageIncrease.textContent = `${percentageIncrease.toFixed(1)}%`;
+  outputs.addedMonthly.textContent = currency.format(addedMonthly);
+  outputs.addedYearly.textContent = currency.format(addedYearly);
+  outputs.currentMonthly.textContent = currency.format(currentMonthly);
+  outputs.percentageTile.textContent = `${percentageIncrease.toFixed(1)}%`;
+  outputs.currentBarValue.textContent = currency.format(currentMonthly);
+  outputs.projectedBarValue.textContent = currency.format(projectedMonthly);
+  outputs.currentBar.style.width = `${Math.max(4, (currentMonthly / maxMonthly) * 100)}%`;
+  outputs.projectedBar.style.width = `${Math.max(4, (projectedMonthly / maxMonthly) * 100)}%`;
+  outputs.projectionNote.textContent = `Added yearly labor revenue is calculated over 12 months. Selected projection term value: ${currency.format(projectedTermOpportunity)}.`;
+  outputs.dealerOpportunityCopy.textContent = `Based on your repair order volume and labor rate, a ${addedHours.toFixed(1)} hour improvement per repair order could represent an estimated ${currency.format(addedYearly)} in additional annual labor revenue.`;
+  updateRecommendation(addedYearly);
+  syncHproOptions(addedHours);
+}
+
+function updateRecommendation(addedYearly) {
+  const details = getPackageDetails(addedYearly);
+
+  outputs.serviceRecommendation.textContent = details.recommendation;
+  outputs.recommendationReason.textContent = details.reason;
+  outputs.recommendationPrice.textContent = details.price;
+}
+
+function getPackageDetails(addedYearly) {
+  if (addedYearly > 500000) {
+    return {
+      recommendation: "Ongoing Consulting / Full Training Support",
+      reason: "Opportunity is over $500,000.",
+      price: "Estimated quote: $16,200 plus $1,000/month for ongoing remote consultations. Includes initial audit at $1,200 and a recommended 3-day training program at $15,000.",
+      priceRange: "$16,200 initial package + $1,000/month ongoing support",
+      fit: "The projected upside supports a full implementation approach: audit the current process, train advisors and technicians, and maintain momentum with remote consultation as new behaviors settle into the service lane.",
+      investment: 16200
+    };
+  }
+
+  if (addedYearly >= 150000) {
+    return {
+      recommendation: "Training Program",
+      reason: "Opportunity is between $150,000 and $500,000.",
+      price: "Estimated quote: $16,200. Includes initial audit at $1,200 and a recommended 3-day training program at $5,000 per day.",
+      priceRange: "$16,200 recommended package",
+      fit: "The opportunity is large enough to justify structured advisor and technician training after an initial audit identifies where labor hours are being missed.",
+      investment: 16200
+    };
+  }
+
+  return {
+    recommendation: "Performance Audit",
+    reason: "Opportunity is under $150,000.",
+    price: "Estimated quote: $1,200 for a half-day audit to help isolate missed opportunities.",
+    priceRange: "$1,200 half-day audit",
+    fit: "A focused audit is the best first step to isolate missed opportunities before committing to a larger training engagement.",
+    investment: 1200
+  };
+}
+
+function syncHproOptions(addedHours) {
+  document.querySelectorAll("[data-hpro]").forEach((button) => {
+    const optionValue = Number(button.dataset.hpro);
+    button.classList.toggle("active", Math.abs(optionValue - addedHours) < 0.001);
+  });
+}
+
+ids.forEach((id) => elements[id].addEventListener("input", calculate));
+
+document.querySelectorAll("[data-hpro]").forEach((button) => {
+  button.addEventListener("click", () => {
+    elements.addedHours.value = button.dataset.hpro;
+    calculate();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if (!window.confirm("Clear all dealership values?")) {
+    return;
+  }
+
+  ids.forEach((id) => {
+    elements[id].value = defaults[id];
+  });
+  calculate();
+});
+
+document.getElementById("pdfBtn").addEventListener("click", exportPdfProposal);
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function exportPdfProposal() {
+  calculate();
+  const packageDetails = getPackageDetails(latestModel.addedYearly);
+  const estimatedRoi = packageDetails.investment > 0 ? latestModel.addedYearly / packageDetails.investment : 0;
+
+  const today = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(new Date());
+
+  document.getElementById("pdfProposal").innerHTML = `
+  <header class="pdf-top">
+    <div class="pdf-brand">
+      <img src="logo_transparent_background.png" alt="Precision RO Consulting logo">
+      <span>Revenue Opportunity Proposal<br>${escapeHtml(today)}</span>
+    </div>
+    <div class="pdf-wordmark">Precision RO Consulting</div>
+    <h1>${escapeHtml(latestModel.dealerName)}</h1>
+    <p class="pdf-subtitle">A fixed operations opportunity model prepared by Precision RO Consulting based on repair order volume, effective labor rate, and projected HPRO improvement.</p>
+  </header>
+
+  <div class="pdf-meta">
+    <div class="pdf-box"><span>Dealer name</span><strong>${escapeHtml(latestModel.dealerName)}</strong></div>
+    <div class="pdf-box"><span>Projection term value</span><strong>${currency.format(latestModel.projectedTermOpportunity)}</strong></div>
+  </div>
+
+  <h2 class="pdf-section-title">1. Revenue Opportunity Summary</h2>
+  <div class="pdf-grid">
+    <div class="pdf-metric"><span>Monthly RO count</span><strong>${latestModel.repairOrders.toLocaleString("en-US")}</strong></div>
+    <div class="pdf-metric"><span>Effective labor rate</span><strong>${currency.format(latestModel.laborRate)}</strong></div>
+    <div class="pdf-metric"><span>Current HPRO</span><strong>${latestModel.currentHours.toFixed(1)}</strong></div>
+    <div class="pdf-metric highlight"><span>Projected HPRO</span><strong class="hpro-pop">${latestModel.projectedHours.toFixed(1)}</strong></div>
+    <div class="pdf-metric dark"><span>Current monthly labor revenue</span><strong>${currency.format(latestModel.currentMonthly)}</strong></div>
+    <div class="pdf-metric highlight"><span>Projected monthly labor revenue</span><strong>${currency.format(latestModel.projectedMonthly)}</strong></div>
+    <div class="pdf-metric dark"><span>Current annual labor revenue</span><strong>${currency.format(latestModel.currentAnnual)}</strong></div>
+    <div class="pdf-metric highlight"><span>Projected annual labor revenue</span><strong>${currency.format(latestModel.projectedAnnual)}</strong></div>
+  </div>
+
+  <h2 class="pdf-section-title">2. Recommended PRC Package</h2>
+  <section class="pdf-service">
+    <span>Recommended PRC service</span>
+    <strong>${escapeHtml(packageDetails.recommendation)}</strong>
+    <em>${escapeHtml(packageDetails.reason)}</em>
+  </section>
+
+  <div class="pdf-package-card accent">
+    <span>3. Package price range</span>
+    <strong>${escapeHtml(packageDetails.priceRange)}</strong>
+    <p>${escapeHtml(packageDetails.price)}</p>
+  </div>
+
+  <div class="pdf-package-card">
+    <span>4. Why this package fits the dealership</span>
+    <strong>${escapeHtml(latestModel.dealerName)}</strong>
+    <p>Based on your repair order volume and labor rate, a ${latestModel.addedHours.toFixed(1)} hour improvement per repair order could represent an estimated ${currency.format(latestModel.addedYearly)} in additional annual labor revenue. ${escapeHtml(packageDetails.fit)}</p>
+  </div>
+
+  <div class="pdf-package-card">
+    <span>5. Projected Labor Revenue Opportunity</span>
+    <strong>${estimatedRoi.toFixed(1)}x</strong>
+    <p>Approximately ${estimatedRoi.toFixed(1)}x the estimated initial investment.</p>
+  </div>
+
+  <div class="pdf-disclaimer">
+    <span>6. Projection disclaimer</span>
+    <p>Revenue projections are estimates based on dealership-provided values and potential improvements in inspection quality, labor sold per repair order, and workflow consistency. Actual results may vary.</p>
+  </div>
+
+  <section class="pdf-contact">
+    <span>Prepared by</span>
+    <p class="pdf-description">PRC helps dealerships improve inspection consistency, diagnostic process, advisor communication, and technician-driven revenue performance.</p>
+    <div class="pdf-contact-grid">
+      <div class="pdf-line"><strong>Precision RO Consulting</strong>Inspection Quality • Diagnostic Process • Advisor/Technician Training</div>
+      <div class="pdf-line"><strong>Contact</strong>(423) 504-6197<br>precision.ro.consulting@gmail.com<br>www.prc.works</div>
+    </div>
+  </section>
+
+  <section class="pdf-closing">
+    <span>Why Precision RO Consulting</span>
+    <strong>Real-world Nissan service drive experience. Practical process improvement. Legitimate revenue growth.</strong>
+    <p>With nearly 15 years of Nissan dealership experience and a long-term average of 3.1 hours sold per repair order, Precision RO Consulting focuses on improving inspection consistency, diagnostic accuracy, and overall service department performance.</p>
+    <p>The goal is not to promote unnecessary repairs, but to ensure legitimate maintenance, safety concerns, and drivability issues are consistently identified, properly documented, and effectively communicated to the customer.</p>
+    <p>When technicians and advisors are open to improving inspection habits and workflow consistency, even modest increases in hours sold per repair order can translate into substantial gains in customer-pay labor sales, retention, and long-term departmental profitability.</p>
+    <p>Precision RO Consulting is built around real-world dealership experience, proven inspection processes, and practical training designed to help service departments increase consistency, improve customer trust, and maximize legitimate revenue opportunities already entering the shop each day.</p>
+  </section>
+
+  <footer class="pdf-footer">
+    <div><strong>Precision RO Consulting</strong><span>Inspection Quality • Diagnostic Process • Advisor/Technician Training</span><span>www.prc.works</span></div>
+    <div><span>precision.ro.consulting@gmail.com</span><span>(423) 504-6197</span><span>Prepared for ${escapeHtml(latestModel.dealerName)}</span></div>
+  </footer>`;
+
+  window.print();
+}
+
+calculate();
+</script>
+</body>
+</html>
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
